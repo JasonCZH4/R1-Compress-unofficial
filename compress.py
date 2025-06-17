@@ -134,7 +134,8 @@ def main():
     with ThreadPoolExecutor() as executor:
         future_to_question = {executor.submit(compress_chunk, q): q for q in need_list}
         for future in tqdm(as_completed(future_to_question)):
-            rst = future_to_question[future]
+            _ = future_to_question[future]
+            rst = future.result()
             opts.append(rst)
     
     with open(f'{save_path}.json', 'w', encoding='utf-8') as f:
