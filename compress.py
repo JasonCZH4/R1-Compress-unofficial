@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 client = OpenAI(
     api_key='000',
-    base_url="http://10.218.108.246:9911/v1",
+    base_url="http://0.0.0.0/v1",
 )
 
 def get_oai_completion(prompt, temperature):
